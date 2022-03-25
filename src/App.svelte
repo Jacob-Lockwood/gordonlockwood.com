@@ -3,9 +3,9 @@
   import Events from "./Events.svelte";
 
   const videos = [
-    { id: "OfjOPHR6naI", width: 560, height: 315 },
-    { id: "cOKkkxtDq00", width: 560, height: 315 },
-    { id: "MoBUNLeASx0", width: 560, height: 315 },
+    { id: "0uHk1MXrhGw", width: 560, height: 315 },
+    { id: "j92oXP9pWbA", width: 560, height: 315 },
+    { id: "WB0VMW2ACiE", width: 560, height: 315 },
   ];
 
   const images = [
