@@ -1,0 +1,49 @@
+---
+import linkify from "linkify-string";
+import { URLSearchParams } from "url";
+const addressToLink = (address: string) =>
+  "https://www.google.com/maps/search/" +
+  new URLSearchParams({ api: "1", query: encodeURIComponent(address) });
+
+export interface Event {
+  title: string;
+  address: string;
+  description: string;
+  date: string;
+}
+export interface Props {
+  events: Event[];
+}
+const { events } = Astro.props as Props;
+---
+
+<div class="events">
+  {
+    events.map(({ title, date, address, description }) => (
+      <div class="event">
+        <h4>{title}</h4>
+        <p>{date}</p>
+        <p>
+          <a href={addressToLink(address)}>{address}</a>
+        </p>
+        <p set:html={linkify(description)} />
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .events {
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+    gap: 2em;
+    box-shadow: inset -0.5em 0 0.5em -0.3em navy;
+  }
+  .event {
+    width: 40ch;
+    flex-shrink: 0;
+    border: 3px dashed;
+    padding: 0.5em;
+  }
+</style>
