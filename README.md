@@ -1,8 +1,8 @@
 # GordonLockwood.com source code
 
-Built with Astro and Svelte
+Built with [Astro][1] and [Svelte][2]
 
-Deploys on Netlify
+Deploys on [Netlify][3]
 
 ## 🧞 Commands
 
@@ -17,6 +17,6 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
 | `pnpm run astro --help` | Get help using the Astro CLI                       |
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+  [1]: https://astro.build
+  [2]: https://svelte.dev
+  [3]: https://app.netlify.com
