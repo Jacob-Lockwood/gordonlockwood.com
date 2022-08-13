@@ -1,18 +1,35 @@
-<script>
-  import YouTubeEmbed from "./YouTubeEmbed.svelte";
-  /** @type {{ id: string, width: number, height: number }[]} */
-  export let videos;
+<script lang="ts">
+  // import YouTubeEmbed from "./YouTubeEmbed.svelte";
+
+  interface Video {
+    id: string;
+    width: number;
+    height: number;
+  }
+  export let videos: Video[];
   $: openVideo = 0;
-  const switchVideo = (i) => (e) => (openVideo = i);
-  const prev = (e) =>
+  const switchVideo = (i: number) => (e: Event) => (openVideo = i);
+  const prev = (e: Event) =>
     openVideo === 0 ? (openVideo = videos.length - 1) : openVideo--;
-  const next = (e) =>
+  const next = (e: Event) =>
     openVideo === videos.length - 1 ? (openVideo = 0) : openVideo++;
 </script>
 
 <div class="carousel">
-  <button class="prev" on:click={prev}>&larr;</button>
-  <YouTubeEmbed {...videos[openVideo]} />
+  {#each videos as { width, height, id }, i}
+    <div class="parent" class:selected={openVideo === i}>
+      <div class="wrap" style="--width: {width}; --height: {height}">
+        <iframe
+          src="https://www.youtube.com/embed/{id}"
+          title="YouTube video player"
+          frameborder="0"
+          allowfullscreen
+        />
+      </div>
+    </div>
+  {/each}
+  <button class="prev" on:click={prev}> &larr; </button>
+  <!-- <YouTubeEmbed {...videos[openVideo]} /> -->
   <button class="next" on:click={next}>&rarr;</button>
   <div class="switcher">
     {#each videos as _, i}
@@ -82,5 +99,25 @@
     .carousel {
       font-size: 0.5em;
     }
+  }
+
+  .parent {
+    display: none;
+    justify-content: center;
+    padding: 0 4em 1em;
+  }
+  .parent.selected {
+    display: flex;
+  }
+  .wrap {
+    display: flex;
+    justify-content: center;
+    border-radius: 1em;
+    overflow: hidden;
+    height: calc((85vw) / (var(--width) / var(--height)));
+    width: 100%;
+  }
+  iframe {
+    flex-basis: 100%;
   }
 </style>

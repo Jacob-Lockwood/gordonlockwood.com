@@ -1,26 +1,20 @@
 {
-  "name": "svelte-app",
-  "version": "1.0.0",
-  "private": true,
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public --no-clear"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-node-resolve": "^11.0.0",
-    "prettier": "^2.4.1",
-    "prettier-plugin-svelte": "^2.4.0",
-    "rollup": "^2.3.4",
-    "rollup-plugin-css-only": "^3.1.0",
-    "rollup-plugin-livereload": "^2.0.0",
-    "rollup-plugin-svelte": "^7.0.0",
-    "rollup-plugin-terser": "^7.0.0",
-    "svelte": "^3.0.0"
+    "@astrojs/svelte": "^1.0.0",
+    "@types/linkifyjs": "^2.1.4",
+    "astro": "^1.0.3",
+    "prettier-plugin-svelte": "^2.7.0",
+    "svelte": "^3.46.4"
   },
   "dependencies": {
-    "linkify-html": "^3.0.2",
-    "sirv-cli": "^1.0.0"
+    "linkify-string": "^3.0.4",
+    "prettier-plugin-astro": "^0.5.0"
   }
 }
