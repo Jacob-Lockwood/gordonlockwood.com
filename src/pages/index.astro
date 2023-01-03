@@ -94,29 +94,30 @@ import events from "./events.json";
   h2 {
     text-transform: uppercase;
   }
+  #media {
+    max-width: 70rem;
+  }
   /* h1 {
     margin: 2rem 0;
   } */
-
-  main {
-    margin: auto;
-    padding: 1em;
-    max-width: 60ch;
-  }
 
   .about-para {
     width: 50%;
     text-align: center;
     font-size: 1.2rem;
   }
-  .about > div {
-    flex-basis: 110%;
+  section.about {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    align-items: center;
   }
-  .about {
-    font-size: 1.5rem;
-    text-align: left;
+  .about > * {
+    width: 50%;
   }
-
+  .about img {
+    object-fit: cover;
+  }
+  
+  
   .link-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
