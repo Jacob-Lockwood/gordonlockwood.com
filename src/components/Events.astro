@@ -4,28 +4,11 @@ import { URLSearchParams } from "url";
 const addressToLink = (address: string) =>
   "https://www.google.com/maps/search/?" +
   new URLSearchParams({ api: "1", query: address });
-const {format: dateFormat} = new Intl.DateTimeFormat("en-US", {
-  weekday: "long",
-  month: "long",
-  day: "numeric",
-  hour: "numeric",
-  minute: "numeric",
-});
-const {format: timeFormat} = new Intl.DateTimeFormat("en-US", {
-  hour: "numeric",
-  minute: "numeric",
-});
-const format = (dateStr: string, length: string) => {
-  const date = new Date(dateStr);
-  const end = new Date(date.getTime() + (Number(length) * 60 * 60 * 1000));
-  return `${dateFormat(date)} - ${timeFormat(end)}`;
-};
 export interface Event {
   title: string;
   address: string;
   description: string;
   date: string;
-  length: string;
 }
 export interface Props {
   events: Event[];
@@ -35,10 +18,10 @@ const { events } = Astro.props as Props;
 
 <div class="events">
   {
-    events.map(({ title, date, address, description, length }) => (
+    events.map(({ title, date, address, description }) => (
       <div class="event">
         <h4>{title}</h4>
-        <time datetime={date}>{format(date, length)}</time>
+        <time>{date}</time>
         <p>
           <a target="_blank" href={addressToLink(address)}>{address}</a>
         </p>
