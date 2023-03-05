@@ -16,6 +16,9 @@
 </script>
 
 <div class="carousel">
+  <button class="prev" on:click={prev}>
+    <span class="arrow">&larr;</span>
+  </button>
   {#each videos as { width, height, id }, i}
     <div class="parent" class:selected={openVideo === i}>
       <div class="wrap" style="--width: {width}; --height: {height}">
@@ -28,9 +31,9 @@
       </div>
     </div>
   {/each}
-  <button class="prev" on:click={prev}> &larr; </button>
-  <!-- <YouTubeEmbed {...videos[openVideo]} /> -->
-  <button class="next" on:click={next}>&rarr;</button>
+  <button class="next" on:click={next}>
+    <span class="arrow">&rarr;</span>
+  </button>
   <div class="switcher">
     {#each videos as _, i}
       <button
@@ -45,6 +48,13 @@
 </div>
 
 <style>
+  .prev,
+  .next {
+    width: 3rem;
+  }
+  .arrow {
+    font-size: 2rem;
+  }
   button {
     cursor: pointer;
     opacity: 0.8;
@@ -87,10 +97,8 @@
     border: none;
     border-radius: 0.5em;
   }
-  .switch-btn.active,
-  .switch-btn:active,
-  .next:active,
-  .prev:active {
+  button:active,
+  button.active {
     background: white;
     color: navy;
     border: 3px solid navy;

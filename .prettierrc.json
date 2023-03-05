@@ -1,0 +1,6 @@
+{
+  "plugins": [
+    "./node_modules/prettier-plugin-astro",
+    "./node_modules/prettier-plugin-svelte"
+  ]
+}
