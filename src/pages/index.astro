@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Carousel from "../components/Carousel.svelte";
-import Events, { Event } from "../components/Events.astro";
+import Events from "../components/Events.astro";
 import events from "./events.json";
 ---
 
@@ -10,6 +10,72 @@ import events from "./events.json";
     <h1>Gordon Lockwood</h1>
     <img src="/images/graphic.webp" alt="" />
   </section>
+
+  <section id="media">
+    <div>
+      <Carousel
+        client:idle
+        videos={[
+          { id: "0uHk1MXrhGw", width: 560, height: 315 }, // Meet Me In the Bottom
+          { id: "wgrvYu4QGpA", width: 560, height: 315 }, // Once Upon a Time the Fire Burned Brighter
+          { id: "j92oXP9pWbA", width: 560, height: 315 }, // Snap Your Fingers
+          { id: "WB0VMW2ACiE", width: 560, height: 315 }, // Big Leg Woman
+        ]}
+      />
+    </div>
+  </section>
+
+  <aside class="about-para">
+    <p>
+      Jeremiah Lockwood and Ricky Gordon have been making music together for
+      over two decades, originally as disciples of Piedmont Blues legend
+      Carolina Slim. For their first post-pandemic live shows they have begun a
+      new duo to share the sonic pleasures stored up over a tumultuous year of
+      longing. Expect old time blues, new-time rhythms, and ballads about all
+      the things we want to do with you.
+    </p>
+  </aside>
+
+  <section id="events">
+    <Events events={events} />
+  </section>
+
+  <h2>About the artists</h2>
+
+  <section class="about" id="about">
+    <div>
+      <h3>Jeremiah Lockwood</h3>
+      <p>
+        Singer/guitarist Jeremiah Lockwood is the founder of The Sway Machinery,
+        a world-exploring, genre-defying band perhaps best known for its
+        collaborations with the late great Khaira Arby of Timbuktu.
+      </p>
+    </div>
+    <img
+      src="/images/lockwood.jpg"
+      width="580"
+      height="320"
+      alt="Jeremiah Lockwood"
+    />
+  </section>
+
+  <section class="about">
+    <img
+      src="/images/gordon.jpg"
+      width="500"
+      height="333"
+      alt={'Ricky "Dirty Red" Gordon'}
+    />
+    <div>
+      <h3>Ricky "Dirty Red" Gordon</h3>
+      <p>
+        Drummer Ricky Gordon is a member of the Wynton Marsalis Ensemble and a
+        prolific composer for the screen, including iconic collaborations with
+        Spike Lee.
+      </p>
+    </div>
+  </section>
+
   <aside id="album-notice">
     <a
       href="https://ayinpress.org/folio/once-upon-a-time-the-fire-burned-brighter/"
@@ -62,71 +128,6 @@ import events from "./events.json";
       </div>
     </div>
   </aside>
-
-  <section id="media">
-    <div>
-      <Carousel
-        client:idle
-        videos={[
-          { id: "wgrvYu4QGpA", width: 560, height: 315 },
-          { id: "0uHk1MXrhGw", width: 560, height: 315 },
-          { id: "j92oXP9pWbA", width: 560, height: 315 },
-          { id: "WB0VMW2ACiE", width: 560, height: 315 },
-        ]}
-      />
-    </div>
-  </section>
-
-  <aside class="about-para">
-    <p>
-      Jeremiah Lockwood and Ricky Gordon have been making music together for
-      over two decades, originally as disciples of Piedmont Blues legend
-      Carolina Slim. For their first post-pandemic live shows they have begun a
-      new duo to share the sonic pleasures stored up over a tumultuous year of
-      longing. Expect old time blues, new-time rhythms, and ballads about all
-      the things we want to do with you.
-    </p>
-  </aside>
-
-  <h2>About the artists</h2>
-
-  <section class="about" id="about">
-    <div>
-      <h3>Jeremiah Lockwood</h3>
-      <p>
-        Singer/guitarist Jeremiah Lockwood is the founder of The Sway Machinery,
-        a world-exploring, genre-defying band perhaps best known for its
-        collaborations with the late great Khaira Arby of Timbuktu.
-      </p>
-    </div>
-    <img
-      src="/images/lockwood.jpg"
-      width="580"
-      height="320"
-      alt="Jeremiah Lockwood"
-    />
-  </section>
-
-  <section class="about">
-    <img
-      src="/images/gordon.jpg"
-      width="500"
-      height="333"
-      alt={'Ricky "Dirty Red" Gordon'}
-    />
-    <div>
-      <h3>Ricky "Dirty Red" Gordon</h3>
-      <p>
-        Drummer Ricky Gordon is a member of the Wynton Marsalis Ensemble and a
-        prolific composer for the screen, including iconic collaborations with
-        Spike Lee.
-      </p>
-    </div>
-  </section>
-
-  <section id="events">
-    <Events events={events} />
-  </section>
 </Layout>
 
 <style>
@@ -162,6 +163,9 @@ import events from "./events.json";
   section.about {
     font-size: clamp(1rem, 2vw, 1.5rem);
     align-items: center;
+  }
+  #events {
+    margin-block: 5rem;
   }
   .about > * {
     width: 50%;
