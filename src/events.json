@@ -1,20 +1,8 @@
-[ 
+[
   {
-    "date": "Wednesday, May 15, 7-9:30pm",
+    "date": "Wednesday, August 21, 7-9:30pm",
     "title": "Gordon Lockwood at Terra Blues",
     "description": "https://www.terrablues.com/",
     "address": "Terra Blues (149 Bleecker St., Manhattan)"
-  },
-    {
-    "date": "Saturdays in July at 6PM - July 6, 13, 20, 27",
-    "title": "Gordon Lockwood residency at Barbès",
-    "address": "376 9th Street, Park Slope, Brooklyn",
-    "description": "https://www.barbesbrooklyn.com/"
-  },
-  {
-    "date": "Saturday August 10 1:30pm-7pm",
-    "title": "Gordon Lockwood at Blues Barbecue",
-    "address": "Hudson River Park's Pier 76, Manhattan",
-    "description": "https://hudsonriverpark.org/visit/events/"
   }
 ]
