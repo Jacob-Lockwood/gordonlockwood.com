@@ -10,7 +10,7 @@
   $: openVideo = 0;
   const switchVideo = (i: number) => () => (openVideo = i);
   const prev = () => openVideo = Math.max(openVideo - 1, 0)
-  const next = () => openVideo = Math.min(openVideo + 1, videos.length)
+  const next = () => openVideo = Math.min(openVideo + 1, videos.length - 1)
 </script>
 
 <div class="carousel">
