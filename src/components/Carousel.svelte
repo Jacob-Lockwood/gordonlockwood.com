@@ -8,11 +8,9 @@
   }
   export let videos: Video[];
   $: openVideo = 0;
-  const switchVideo = (i: number) => (e: Event) => (openVideo = i);
-  const prev = (e: Event) =>
-    openVideo === 0 ? (openVideo = videos.length - 1) : openVideo--;
-  const next = (e: Event) =>
-    openVideo === videos.length - 1 ? (openVideo = 0) : openVideo++;
+  const switchVideo = (i: number) => () => (openVideo = i);
+  const prev = () => openVideo = Math.min(openVideo - 1, 0)
+  const next = () => openVideo = Math.max(openVideo + 1, videos.length)
 </script>
 
 <div class="carousel">
