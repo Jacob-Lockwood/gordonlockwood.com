@@ -9,28 +9,18 @@ export type Video = {
 export const Carousel: Component<{ videos: readonly Video[] }> = (props) => {
   const [idx, setIdx] = createSignal(0);
   const { videos } = props;
-  const frames = videos.map(
-    (vid, i) =>
-      (
-        <iframe
-          src={`https://www.youtube.com/embed/${vid.id}`}
-          title="YouTube video player"
-          allowfullscreen
-          class={`aspect-video w-full ${idx() === i ? "" : "hidden"}`}
-        />
-      ) as HTMLIFrameElement,
-  );
-  const videoElements = frames.map((frame) => frame.querySelector("video")!);
-  createEffect(() => {
-    videoElements.forEach((ele, i) => {
-      if (i !== idx()) {
-        ele.pause();
-      }
-    });
-  });
   return (
     <div>
-      <div>{frames}</div>
+      <div>
+        {videos.map((vid, i) => (
+          <iframe
+            src={`https://www.youtube.com/embed/${vid.id}`}
+            title="YouTube video player"
+            allowfullscreen
+            class={`aspect-video w-full ${idx() === i ? "" : "hidden"}`}
+          />
+        ))}
+      </div>
       <div class="mx-auto mt-6 flex w-max gap-5">
         <button
           class="h-10 w-10 rounded-full bg-indigo-700 text-xl text-indigo-200"
