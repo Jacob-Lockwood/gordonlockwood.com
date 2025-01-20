@@ -1,15 +1,30 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Carousel from "../components/Carousel.svelte";
+// import Carousel from "../components/Carousel.svelte";
+import { Carousel } from "../components/Carousel";
 import Events from "../components/Events.astro";
 import events from "../events.json";
 ---
 
 <Layout title="Gordon Lockwood">
-  <section id="hero">
-    <h1>Gordon Lockwood</h1>
-    <img src="/images/graphic.webp" alt="" />
+  <section class="relative w-full">
+    <img src="/images/graphic.webp" alt="" class="mx-auto w-full md:w-5/6" />
+    <h1
+      class="absolute bottom-20 w-full text-center font-display text-6xl uppercase tracking-tight text-blue-800 [word-spacing:1rem]"
+      style="text-shadow: 1px 1px currentColor;"
+    >
+      Gordon Lockwood
+    </h1>
   </section>
+
+  <p class="mx-auto mb-20 max-w-prose text-center text-xl">
+    Jeremiah Lockwood and Ricky Gordon have been making music together for over
+    two decades, originally as disciples of Piedmont Blues legend Carolina Slim.
+    For their first post-pandemic live shows they have begun a new duo to share
+    the sonic pleasures stored up over a tumultuous year of longing. Expect old
+    time blues, new-time rhythms, and ballads about all the things we want to do
+    with you.
+  </p>
 
   <section id="media">
     <div>
@@ -26,60 +41,51 @@ import events from "../events.json";
     </div>
   </section>
 
-  <aside class="about-para">
-    <p>
-      Jeremiah Lockwood and Ricky Gordon have been making music together for
-      over two decades, originally as disciples of Piedmont Blues legend
-      Carolina Slim. For their first post-pandemic live shows they have begun a
-      new duo to share the sonic pleasures stored up over a tumultuous year of
-      longing. Expect old time blues, new-time rhythms, and ballads about all
-      the things we want to do with you.
-    </p>
-  </aside>
+  <h2 class="my-10 text-center text-2xl font-bold">Upcoming events</h2>
 
-  <h2>Upcoming Events</h2>
-
-  <section id="events">
+  <section id="events" class="mb-20">
     <Events events={events} />
   </section>
 
-  <h2>About the artists</h2>
-
-  <section class="about" id="about">
-    <div>
-      <h3>Jeremiah Lockwood</h3>
-      <p>
-        Singer/guitarist Jeremiah Lockwood is the founder of The Sway Machinery,
-        a world-exploring, genre-defying band perhaps best known for its
-        collaborations with the late great Khaira Arby of Timbuktu.
-      </p>
+  <h2 class="my-10 text-center text-2xl font-bold">About the artists</h2>
+  <section id="about" class="mx-auto mb-20 max-w-4xl">
+    <div class="flex flex-col items-center gap-10 lg:flex-row">
+      <div class="text-xl">
+        <h3 class="font-bold">Jeremiah Lockwood</h3>
+        <p>
+          Singer/guitarist Jeremiah Lockwood is the founder of The Sway
+          Machinery, a world-exploring, genre-defying band perhaps best known
+          for its collaborations with the late great Khaira Arby of Timbuktu.
+        </p>
+      </div>
+      <img
+        src="/images/lockwood.jpg"
+        width="580"
+        height="320"
+        alt="Jeremiah Lockwood"
+        class="border-4 border-dashed border-indigo-400 p-2"
+      />
     </div>
-    <img
-      src="/images/lockwood.jpg"
-      width="580"
-      height="320"
-      alt="Jeremiah Lockwood"
-    />
+    <div class="mt-10 flex flex-col items-center gap-10 lg:flex-row-reverse">
+      <div class="text-xl">
+        <h3 class="font-bold">Ricky "Dirty Red" Gordon</h3>
+        <p>
+          Drummer Ricky Gordon is a member of the Wynton Marsalis Ensemble and a
+          prolific composer for the screen, including iconic collaborations with
+          Spike Lee.
+        </p>
+      </div>
+      <img
+        src="/images/gordon.jpg"
+        width="500"
+        height="333"
+        alt='Ricky "Dirty Red" Gordon'
+        class="border-4 border-dashed border-indigo-400 p-2"
+      />
+    </div>
   </section>
 
-  <section class="about">
-    <img
-      src="/images/gordon.jpg"
-      width="500"
-      height="333"
-      alt={'Ricky "Dirty Red" Gordon'}
-    />
-    <div>
-      <h3>Ricky "Dirty Red" Gordon</h3>
-      <p>
-        Drummer Ricky Gordon is a member of the Wynton Marsalis Ensemble and a
-        prolific composer for the screen, including iconic collaborations with
-        Spike Lee.
-      </p>
-    </div>
-  </section>
-
-  <aside id="album-notice">
+  <aside id="album-notice" class="mt-40 text-lg">
     <a
       href="https://ayinpress.org/folio/once-upon-a-time-the-fire-burned-brighter/"
       target="_blank"
@@ -88,170 +94,62 @@ import events from "../events.json";
         <img
           src="/images/once_upon_a_time_the_fire_burned_brighter.png"
           alt="Once Upon A Time The Fire Burned Brighter"
+          class="w-full"
         />
-        <figcaption>Debut EP from Gordon Lockwood!!</figcaption>
+        <figcaption class="text-center text-xl">
+          Debut EP from Gordon Lockwood!!
+        </figcaption>
       </figure>
     </a>
-    <div>
-      <p>
-        In the multimedia album Once Upon a Time the Fire Burned Brighter:
-        Ballads from the Yiddish Gothic, scholar and musician Jeremiah Lockwood
-        opens a doorway into the rich sensorium of the Yiddish ballad. Drawing
-        deeply from the work of legendary Yiddish folk singer Lifshe
-        Schaechter-Widman, the collection reimagines and recasts Yiddish ballads
-        through audio and video performances by Gordon Lockwood (the musical
-        project of Lockwood and drummer Ricky Gordon), which appear beside
-        archival visuals, lyric adaptations, and textual explorations. Once Upon
-        a Time the Fire Burned Brighter invites us to experience a body of
-        Jewish song that emerges from a world of fantasy, memory, and
-        symbol—constituting a Yiddish gothic, a folk expressionism unapologetic
-        in the extremes of its enticing imagery.
+    <div class="mx-auto my-10 flex w-max flex-col gap-10 lg:flex-row">
+      <p class="max-w-prose">
+        In the multimedia album <cite>
+          Once Upon a Time the Fire Burned Brighter: Ballads from the Yiddish
+          Gothic</cite
+        >, scholar and musician Jeremiah Lockwood opens a doorway into the rich
+        sensorium of the Yiddish ballad. Drawing deeply from the work of
+        legendary Yiddish folk singer Lifshe Schaechter-Widman, the collection
+        reimagines and recasts Yiddish ballads through audio and video
+        performances by Gordon Lockwood (the musical project of Lockwood and
+        drummer Ricky Gordon), which appear beside archival visuals, lyric
+        adaptations, and textual explorations. Once Upon a Time the Fire Burned
+        Brighter invites us to experience a body of Jewish song that emerges
+        from a world of fantasy, memory, and symbol—constituting a Yiddish
+        gothic, a folk expressionism unapologetic in the extremes of its
+        enticing imagery.
       </p>
-      <div>
+      <div class="mx-auto flex w-max flex-col gap-5">
         <a
           href="https://ayinpress.org/folio/once-upon-a-time-the-fire-burned-brighter/"
           target="_blank"
+          class="text-center underline"
         >
           Read more
         </a>
         <a
           href="https://open.spotify.com/album/25xbK0u9KQZduumUkw1ynM?si=E5DzlbeyTdG6wQFPIfzmiQ"
           target="_blank"
-          class="listen-on spotify"
+          class="flex w-max items-center gap-2 rounded-lg bg-black px-2 py-1 text-indigo-50"
         >
-          Listen on <img src="/images/spotify.svg" alt="Spotify" />
+          Listen on <img
+            src="/images/spotify.svg"
+            alt="Spotify"
+            class="inline-block w-20"
+          />
         </a>
         <a
+          <a
           href="https://music.apple.com/us/album/once-upon-a-time-the-fire-burned-brighter-ballads/1674810118"
           target="_blank"
-          class="listen-on apple-music"
+          class="flex w-max items-center gap-2 rounded-lg bg-gradient-to-b from-indigo-600 to-sky-600 px-2 py-1 text-indigo-50"
         >
-          Listen on <img src="/images/apple-music.svg" alt="Apple Music" />
+          Listen on <img
+            src="/images/apple-music.svg"
+            alt="Apple Music"
+            class="inline-block w-20"
+          />
         </a>
       </div>
     </div>
   </aside>
 </Layout>
-
-<style>
-  h1 {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -30%);
-    width: 80%;
-    font-family: "Rubik Mono One", sans-serif;
-    font-size: 5rem;
-    color: navy;
-    opacity: 0.7;
-  }
-  h2 {
-    text-transform: uppercase;
-    margin-top: 5rem;
-  }
-  #media {
-    max-width: 70rem;
-  }
-  /* h1 {
-    margin: 2rem 0;
-  } */
-
-  .about-para {
-    width: 50%;
-    text-align: center;
-    font-size: 1.2rem;
-  }
-  section.about {
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    align-items: center;
-  }
-  #events {
-    /* margin-: 5rem; */
-  }
-  .about > * {
-    width: 50%;
-  }
-  .about img {
-    object-fit: cover;
-  }
-
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 1rem;
-    padding: 0;
-  }
-
-  /* Temporary */
-
-  #album-notice {
-    margin: 0 auto;
-    width: 80%;
-    padding: 5rem 0;
-    line-height: 1.4;
-  }
-  #album-notice figure {
-    text-align: center;
-    font-size: 1.5rem;
-  }
-  #album-notice p {
-    max-width: 60ch;
-  }
-  #album-notice > div {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-  }
-  #album-notice > div > div {
-    width: max-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-  }
-  .listen-on {
-    font-size: 0.8rem;
-    line-height: 2;
-    display: flex;
-    justify-content: center;
-    color: white !important;
-    padding: 4px 6px;
-    border-radius: 8px;
-    gap: 8px;
-    font-weight: 500;
-  }
-  .listen-on img {
-    display: inline;
-    width: 4rem;
-  }
-  .listen-on.spotify {
-    background-color: black;
-  }
-  .listen-on.apple-music {
-    background: linear-gradient(
-      180deg,
-      rgba(255, 0, 110, 1) 0%,
-      rgba(250, 64, 91, 1) 50%,
-      rgba(246, 109, 77, 1) 100%
-    );
-  }
-  @media (max-width: 1200px) {
-    #album-notice {
-      text-align: center;
-    }
-    #album-notice > div {
-      flex-direction: column;
-      align-items: center;
-    }
-    #album-notice > div div {
-      flex-direction: row;
-    }
-    h1 {
-      font-size: 8vw;
-    }
-    .about-para {
-      width: 100%;
-      padding: 0 3rem;
-    }
-  }
-</style>
