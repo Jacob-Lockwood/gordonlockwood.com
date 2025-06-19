@@ -17,7 +17,7 @@ export const Carousel: Component<{ videos: readonly Video[] }> = (props) => {
             src={`https://www.youtube.com/embed/${vid.id}`}
             title="YouTube video player"
             allowfullscreen
-            class={`aspect-video w-full ${idx() === i ? "" : "hidden"}`}
+            class={`mx-auto aspect-video w-5/6 ${idx() === i ? "" : "hidden"}`}
           />
         ))}
       </div>
