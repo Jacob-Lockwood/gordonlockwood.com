@@ -1,23 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
-// import Carousel from "../components/Carousel.svelte";
 import { Carousel } from "../components/Carousel";
-import Events from "../components/Events.astro";
-import events from "../events.json";
+import Event from "../components/Event.astro";
 ---
 
 <Layout title="Gordon Lockwood">
-  <section class="relative w-full">
-    <img src="/images/graphic.webp" alt="" class="mx-auto w-full md:w-5/6" />
+  <section class="relative">
+    <img src="/images/graphic.webp" alt="" class="mx-auto w-full max-w-4xl" />
     <h1
-      class="absolute bottom-20 w-full text-center font-display text-6xl uppercase tracking-tight text-blue-800 [word-spacing:1rem]"
+      class="absolute bottom-2 w-full text-center font-display text-3xl uppercase tracking-tight text-blue-800 [word-spacing:1rem] sm:bottom-10 sm:text-4xl md:bottom-16 md:text-5xl lg:bottom-20 lg:text-6xl"
       style="text-shadow: 1px 1px currentColor;"
     >
       Gordon Lockwood
     </h1>
   </section>
 
-  <p class="mx-auto mb-20 max-w-prose text-center text-xl">
+  <p class="mx-auto mb-20 max-w-prose text-center text-lg md:text-xl">
     Jeremiah Lockwood and Ricky Gordon have been making music together for over
     two decades, originally as disciples of Piedmont Blues legend Carolina Slim.
     For their first post-pandemic live shows they have begun a new duo to share
@@ -27,7 +25,7 @@ import events from "../events.json";
   </p>
 
   <section id="media">
-    <div>
+    <div class="mx-auto max-w-4xl">
       <Carousel
         client:load
         videos={[
@@ -44,15 +42,45 @@ import events from "../events.json";
   <h2 class="my-10 text-center text-2xl font-bold">Upcoming events</h2>
 
   <section id="events" class="mb-20">
-    <Events events={events} />
+    <div
+      class="mx-auto flex max-w-4xl gap-8 overflow-x-scroll border-2 border-solid border-indigo-300 p-2"
+    >
+      <Event
+        title="Gordon Lockwood at Terra Blues"
+        date="Thursday, June 19 7-9:30pm"
+        address="149 Bleecker Street, Manhattan"
+        description={["https://www.terrablues.com/"]}
+      />
+      <Event
+        title="Gordon Lockwood - July Residency at Barbès"
+        date="July 5, 12, 19, 26 at 6pm"
+        address="Barbès - 376 9th Street, Park Slope,  Brooklyn"
+        description={[
+          // "Join your friends Ricky Gordon and Jeremiah Lockwood every Saturday in July for old time blues, new time rhythms...good times for all!",
+          "https://www.barbesbrooklyn.com/",
+        ]}
+      />
+      <Event
+        title="Gordon Lockwood at Blues by the Boardwalk - Pier 97"
+        address="Hudson River Park (at 57th St on the river)"
+        date="Tuesday, August 5 6:30pm"
+        description={[]}
+      />
+      <Event
+        title="Gordon Lockwood at Terra Blues"
+        date="Thursday, August 21 7-9:30pm"
+        address="149 Bleecker Street, Manhattan"
+        description={["https://www.terrablues.com/"]}
+      />
+    </div>
   </section>
 
   <h2 class="my-10 text-center text-2xl font-bold">About the artists</h2>
-  <section id="about" class="mx-auto mb-20 max-w-4xl">
+  <section id="about" class="mx-auto mb-20 max-w-4xl text-center">
     <div class="flex flex-col items-center gap-10 lg:flex-row">
       <div class="text-xl">
         <h3 class="font-bold">Jeremiah Lockwood</h3>
-        <p>
+        <p class="max-w-prose">
           Singer/guitarist Jeremiah Lockwood is the founder of The Sway
           Machinery, a world-exploring, genre-defying band perhaps best known
           for its collaborations with the late great Khaira Arby of Timbuktu.
@@ -66,10 +94,12 @@ import events from "../events.json";
         class="border-4 border-dashed border-indigo-400 p-2"
       />
     </div>
-    <div class="mt-10 flex flex-col items-center gap-10 lg:flex-row-reverse">
+    <div
+      class="mt-10 flex flex-col items-center gap-10 text-center lg:flex-row-reverse"
+    >
       <div class="text-xl">
         <h3 class="font-bold">Ricky "Dirty Red" Gordon</h3>
-        <p>
+        <p class="max-w-prose">
           Drummer Ricky Gordon is a member of the Wynton Marsalis Ensemble and a
           prolific composer for the screen, including iconic collaborations with
           Spike Lee.
@@ -85,10 +115,11 @@ import events from "../events.json";
     </div>
   </section>
 
-  <aside id="album-notice" class="mt-40 text-lg">
+  <aside id="album-notice" class="mx-auto mt-40 text-lg">
     <a
       href="https://ayinpress.org/folio/once-upon-a-time-the-fire-burned-brighter/"
       target="_blank"
+      class="block w-full"
     >
       <figure>
         <img
@@ -101,7 +132,9 @@ import events from "../events.json";
         </figcaption>
       </figure>
     </a>
-    <div class="mx-auto my-10 flex w-max flex-col gap-10 lg:flex-row">
+    <div
+      class="mx-auto my-10 flex w-full max-w-max flex-col gap-10 lg:flex-row"
+    >
       <p class="max-w-prose">
         In the multimedia album <cite>
           Once Upon a Time the Fire Burned Brighter: Ballads from the Yiddish

@@ -17,7 +17,7 @@ export const Carousel: Component<{ videos: readonly Video[] }> = (props) => {
             src={`https://www.youtube.com/embed/${vid.id}`}
             title="YouTube video player"
             allowfullscreen
-            class={`mx-auto aspect-video w-5/6 ${idx() === i ? "" : "hidden"}`}
+            class={`mx-auto aspect-video w-full ${idx() === i ? "" : "hidden"}`}
           />
         ))}
       </div>
@@ -30,7 +30,7 @@ export const Carousel: Component<{ videos: readonly Video[] }> = (props) => {
         </button>
         {videos.map((_, i) => (
           <button
-            class={`h-10 w-10 rounded-full text-indigo-200 ${idx() === i ? "bg-blue-600" : "bg-indigo-700"}`}
+            class={`hidden h-10 w-10 rounded-full text-indigo-200 sm:block ${idx() === i ? "bg-blue-600" : "bg-indigo-700"}`}
             onClick={() => setIdx(i)}
           >
             {i + 1}
