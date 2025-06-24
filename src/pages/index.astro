@@ -8,7 +8,7 @@ import Event from "../components/Event.astro";
   <section class="relative">
     <img src="/images/graphic.webp" alt="" class="mx-auto w-full max-w-4xl" />
     <h1
-      class="absolute bottom-2 w-full text-center font-display text-3xl uppercase tracking-tight text-blue-800 [word-spacing:1rem] sm:bottom-10 sm:text-4xl md:bottom-16 md:text-5xl lg:bottom-20 lg:text-6xl"
+      class="font-display absolute bottom-2 w-full text-center text-3xl tracking-tight text-blue-800 uppercase [word-spacing:1rem] sm:bottom-10 sm:text-4xl md:bottom-16 md:text-5xl lg:bottom-20 lg:text-6xl"
       style="text-shadow: 1px 1px currentColor;"
     >
       Gordon Lockwood
@@ -43,35 +43,37 @@ import Event from "../components/Event.astro";
 
   <section id="events" class="mb-20">
     <div
-      class="mx-auto flex max-w-4xl gap-8 overflow-x-scroll border-2 border-solid border-indigo-300 p-2"
+      class="mx-auto max-w-4xl overflow-x-scroll border-4 border-dashed border-indigo-400 p-2"
     >
-      <Event
-        title="Gordon Lockwood at Terra Blues"
-        date="Thursday, June 19 7-9:30pm"
-        address="149 Bleecker Street, Manhattan"
-        description={["https://www.terrablues.com/"]}
-      />
-      <Event
-        title="Gordon Lockwood - July Residency at Barbès"
-        date="July 5, 12, 19, 26 at 6pm"
-        address="Barbès - 376 9th Street, Park Slope,  Brooklyn"
-        description={[
-          // "Join your friends Ricky Gordon and Jeremiah Lockwood every Saturday in July for old time blues, new time rhythms...good times for all!",
-          "https://www.barbesbrooklyn.com/",
-        ]}
-      />
-      <Event
-        title="Gordon Lockwood at Blues by the Boardwalk - Pier 97"
-        address="Hudson River Park (at 57th St on the river)"
-        date="Tuesday, August 5 6:30pm"
-        description={[]}
-      />
-      <Event
-        title="Gordon Lockwood at Terra Blues"
-        date="Thursday, August 21 7-9:30pm"
-        address="149 Bleecker Street, Manhattan"
-        description={["https://www.terrablues.com/"]}
-      />
+      <div class="flex w-max gap-2 bg-indigo-300">
+        <Event
+          title="Gordon Lockwood at Terra Blues"
+          date="Thursday, June 19 7-9:30pm"
+          address="149 Bleecker Street, Manhattan"
+          description={["https://www.terrablues.com/"]}
+        />
+        <Event
+          title="Gordon Lockwood - July Residency at Barbès"
+          date="July 5, 12, 19, 26 at 6pm"
+          address="Barbès - 376 9th Street, Park Slope,  Brooklyn"
+          description={[
+            // "Join your friends Ricky Gordon and Jeremiah Lockwood every Saturday in July for old time blues, new time rhythms...good times for all!",
+            "https://www.barbesbrooklyn.com/",
+          ]}
+        />
+        <Event
+          title="Gordon Lockwood at Blues by the Boardwalk - Pier 97"
+          address="Hudson River Park (at 57th St on the river)"
+          date="Tuesday, August 5 6:30pm"
+          description={[]}
+        />
+        <Event
+          title="Gordon Lockwood at Terra Blues"
+          date="Thursday, August 21 7-9:30pm"
+          address="149 Bleecker Street, Manhattan"
+          description={["https://www.terrablues.com/"]}
+        />
+      </div>
     </div>
   </section>
 

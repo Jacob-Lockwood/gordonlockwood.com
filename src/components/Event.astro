@@ -13,9 +13,7 @@ export interface Props {
 const { title, date, address, description } = Astro.props as Props;
 ---
 
-<div
-  class="w-80 flex-shrink-0 border-2 border-dashed border-blue-500 p-2 text-center text-lg"
->
+<div class="w-80 flex-shrink-0 bg-indigo-200 p-2 text-center text-lg">
   <h4 class="font-bold">{title}</h4>
   <time class="underline">{date}</time>
   <p>
