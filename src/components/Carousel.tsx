@@ -1,4 +1,4 @@
-import { createEffect, createSignal, type Component } from "solid-js";
+import { createSignal, type Component } from "solid-js";
 
 export type Video = {
   id: string;
