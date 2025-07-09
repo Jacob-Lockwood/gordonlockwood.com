@@ -15,6 +15,7 @@ export const Carousel: Component<{ videos: readonly Video[] }> = (props) => {
         {videos.map((vid, i) => (
           <iframe
             src={`https://www.youtube.com/embed/${vid.id}`}
+            loading="lazy"
             title="YouTube video player"
             allowfullscreen
             class={`mx-auto aspect-video w-full ${idx() === i ? "" : "hidden"}`}
