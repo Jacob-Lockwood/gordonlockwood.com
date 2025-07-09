@@ -21,13 +21,16 @@ export const Carousel: Component<{ videos: readonly Video[] }> = (props) => {
           />
         ))}
       </div>
-      <div class="mx-auto mt-6 flex w-max gap-5">
+      <div class="mx-auto mt-6 flex w-max items-center gap-5">
         <button
           class="h-10 w-10 rounded-full bg-indigo-700 text-xl text-indigo-200"
           onClick={() => setIdx((idx) => (idx || videos.length) - 1)}
         >
           &larr;
         </button>
+        <p class="font-bold text-indigo-700 sm:hidden">
+          {idx() + 1} of {videos.length}
+        </p>
         {videos.map((_, i) => (
           <button
             class={`hidden h-10 w-10 rounded-full text-indigo-200 sm:block ${idx() === i ? "bg-blue-600" : "bg-indigo-700"}`}
