@@ -1,5 +1,5 @@
 ---
-import linkify from "linkify-string";
+import linkifyHtml from "linkify-html";
 import { URLSearchParams } from "url";
 const addressToLink = (address: string) =>
   "https://www.google.com/maps/search/?" +
@@ -7,10 +7,10 @@ const addressToLink = (address: string) =>
 export interface Props {
   title: string;
   address: string;
-  description: string[];
   date: string;
 }
-const { title, date, address, description } = Astro.props as Props;
+const { title, date, address } = Astro.props as Props;
+const description = (await Astro.slots.render("default")) ?? "";
 ---
 
 <div class="w-80 flex-shrink-0 bg-indigo-200 p-2 text-center text-lg">
@@ -21,9 +21,5 @@ const { title, date, address, description } = Astro.props as Props;
       {address}
     </a>
   </p>
-  {
-    description.map((txt) => (
-      <p set:html={linkify(txt, { className: "underline" })} />
-    ))
-  }
+  <Fragment set:html={linkifyHtml(description, { className: "underline" })} />
 </div>
