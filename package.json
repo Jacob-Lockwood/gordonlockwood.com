@@ -8,12 +8,12 @@
   },
   "devDependencies": {
     "@types/linkifyjs": "^2.1.7",
-    "astro": "^5.10.1",
+    "astro": "^7.2.1",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1"
   },
   "dependencies": {
-    "@astrojs/solid-js": "^5.0.3",
+    "@astrojs/solid-js": "^7.0.2",
     "@tailwindcss/vite": "^4.1.10",
     "linkify-html": "^4.3.3",
     "linkifyjs": "^4.3.3",
