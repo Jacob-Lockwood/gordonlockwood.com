@@ -5,20 +5,26 @@ const addressToLink = (address: string) =>
   new URLSearchParams({ api: "1", query: address });
 export interface Props {
   title: string;
-  address: string;
+  venue?: string;
+  address?: string;
   date: string;
 }
-const { title, date, address } = Astro.props as Props;
+const { title, date, venue, address } = Astro.props as Props;
 const description = (await Astro.slots.render("default")) ?? "";
 ---
 
-<div class="w-80 flex-shrink-0 bg-indigo-200 p-2 text-center text-lg">
+<div class="w-80 shrink-0 bg-indigo-200 p-2 text-center text-lg">
   <h4 class="font-bold">{title}</h4>
   <time class="underline">{date}</time>
-  <p>
-    <a target="_blank" href={addressToLink(address)}>
-      {address}
-    </a>
-  </p>
+  {venue && <p>{venue}</p>}
+  {
+    address && (
+      <p>
+        <a target="_blank" href={addressToLink(address)}>
+          {address}
+        </a>
+      </p>
+    )
+  }
   <Fragment set:html={linkifyHtml(description, { className: "underline" })} />
 </div>
